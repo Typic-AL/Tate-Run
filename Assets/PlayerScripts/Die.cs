@@ -21,7 +21,7 @@ public class Die : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.isDead())
+        if (GameManager.Instance.isDead() && !buttonsNull())
         {
             revive.interactable = true;
             revive.image.color = new Color(revive.image.color.r, revive.image.color.g, revive.image.color.b, 1f);
@@ -29,7 +29,7 @@ public class Die : MonoBehaviour
             restart.interactable = true;
             restart.image.color = new Color(restart.image.color.r, restart.image.color.g, restart.image.color.b, 1f);
         }
-        else
+        else if(!GameManager.Instance.isDead() && !buttonsNull())
         {
             revive.interactable = false;
             revive.image.color = new Color(revive.image.color.r, revive.image.color.g, revive.image.color.b, 0f);
@@ -54,6 +54,14 @@ public class Die : MonoBehaviour
     public bool isDead()
     {
         return dead;
+    }
+
+    private bool buttonsNull()
+    {
+        if (revive == null || restart == null)
+            return true;
+        else
+            return false;
     }
 
 

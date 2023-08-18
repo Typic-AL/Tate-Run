@@ -9,7 +9,6 @@ public class counter : MonoBehaviour
     float multi = 1;
     public TMPro.TextMeshProUGUI counterText;
     float timer = 0;
-    int meters = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +21,7 @@ public class counter : MonoBehaviour
         if (!GameManager.Instance.isDead())
             count();
         
-        counterText.text = meters.ToString()   ;
+        counterText.text = GameManager.Instance.meters.ToString();
     }
 
     void count() 
@@ -30,7 +29,7 @@ public class counter : MonoBehaviour
         multi = Mathf.Lerp(multi, 2, (float)0.00025);
         if (timer >= .2 / multi)
         {
-            meters += 1;
+            GameManager.Instance.meters += 1;
             timer = 0;
         }
         timer += Time.deltaTime;
