@@ -23,9 +23,9 @@ public class Move : MonoBehaviour
 
     void Update()
     {
-        
         if (!GameManager.Instance.isDead())
         {
+            #region Move
             if (Input.touchCount > 0)
             {
                 touch = Input.GetTouch(0);
@@ -39,8 +39,12 @@ public class Move : MonoBehaviour
                     
                 }
             }
+            
 
             speed = Mathf.Lerp(speed, 25, .01f * Time.deltaTime);
+            #endregion
+
+            #region Pause
             if (!GameManager.Instance.isPause())
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + speed * Time.deltaTime);
@@ -48,6 +52,7 @@ public class Move : MonoBehaviour
                 lite.transform.position = new Vector3(lite.transform.position.x, lite.transform.position.y, lite.transform.position.z + speed * Time.deltaTime);
 
             }
+            #endregion
         }
     }
 

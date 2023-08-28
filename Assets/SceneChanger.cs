@@ -7,6 +7,7 @@ public class SceneChanger : MonoBehaviour
 {
     public void ChangeScene(string sceneName)
     {
+        SaveSystem.Save(GameManager.Instance);
         SceneManager.LoadScene(sceneName);
     }
 

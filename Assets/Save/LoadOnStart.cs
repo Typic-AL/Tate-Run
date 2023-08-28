@@ -1,25 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Dreamteck.Forever;
 
 public class LoadOnStart : MonoBehaviour
 {
-    private int counter = 0;
+    public LevelGenerator lg;
+    public ForeverLevel desert;
     
     // Start is called before the first frame update
     void Start()
     {
+        SaveData data = SaveSystem.Load();
+        GameManager.Instance.highScore = data.highScore;
+        GameManager.Instance.map = data.map;
+        if (GameManager.Instance.map == "desert")
+        {
+            lg.levelCollection.SetValue(desert, 1);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (counter == 0)
-        {
-            SaveData data = SaveSystem.Load();
-            GameManager.Instance.highScore = data.highScore;
-            counter = 1;
-        }
             
+    }
+
+    private void OnApplicationQuit()
+    {
+        SaveSystem.Save(GameManager.Instance);
     }
 }

@@ -11,8 +11,8 @@ public class GameManager
 
     private GameManager()
     {
-        // initialize your game manager here. Do not reference to GameObjects here (i.e. GameObject.Find etc.)
-        // because the game manager will be created before the objects
+        //SaveData data = SaveSystem.Load();
+        //map = data.map;
     }
 
     public static GameManager Instance
@@ -34,6 +34,8 @@ public class GameManager
     private bool paused = false;
     public int meters = 0;
     public int highScore = 0;
+    public int coins = 0;
+    public string map;
 
     // Add your game mananger members here
     public void Update()
@@ -82,8 +84,15 @@ public class GameManager
         return paused; 
     }
 
+    public void incrementCoins()
+    {
+        coins += 1;
+    }
+
     #endregion
 
+
+    #region Saving and Loading
     public void Save()
     {
         SaveSystem.Save(Instance);
@@ -111,5 +120,6 @@ public class GameManager
             Save();
         }
     }
+    #endregion
 
 }

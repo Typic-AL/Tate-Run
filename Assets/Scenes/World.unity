@@ -1144,7 +1144,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 314, y: 536}
+  m_AnchoredPosition: {x: 314, y: 590}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &926590482
@@ -1253,7 +1253,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1372,6 +1372,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918d13a5d99dd7f419a28d067f796e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lg: {fileID: 1105670993}
+  desert: {fileID: 11400000, guid: d7d63edaf4b572f45a8a37ec51c5b063, type: 2}
 --- !u!4 &1181591274
 Transform:
   m_ObjectHideFlags: 0
@@ -2081,6 +2083,7 @@ GameObject:
   - component: {fileID: 1730940143}
   - component: {fileID: 1730940142}
   - component: {fileID: 1730940141}
+  - component: {fileID: 1730940144}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -2123,7 +2126,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -2154,6 +2157,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 29.837, y: 0, z: 0}
+--- !u!114 &1730940144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730940140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c0134de7e6e854bb49e203722ee5c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wireColor: {r: 1, g: 1, b: 1, a: 1}
+  UnitsSize: 20
+  constraint: 1
+  camera: {fileID: 1730940142}
+  executeInUpdate: 1
 --- !u!1 &1794081533
 GameObject:
   m_ObjectHideFlags: 0

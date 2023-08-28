@@ -43,7 +43,7 @@ public class Die : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        if (!col.gameObject.name.Contains("Terrain"))
+        if (!col.gameObject.name.Contains("Terrain") && !col.gameObject.name.Contains("Coin"))
 
         {
             GameManager.Instance.Die();
